@@ -44,7 +44,7 @@ const Topbar = () => {
               />
 
               {/* Dropdown Item*/}
-              <div className="absolute right-0 top-7 w-20 bg-white shadow-md rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              <div className="absolute text-[#8A8A8A] right-0 top-7 w-20 bg-white shadow-md rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 {language !== "EN" && (
                   <div
                     onClick={() => setLanguage("EN")}
