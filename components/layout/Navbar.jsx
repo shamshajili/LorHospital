@@ -51,7 +51,7 @@ const Navbar = () => {
             />
           </div>
 
-          <button className="flex items-center gap-2 bg-[#0FB3FF8C] text-white px-2 h-8 rounded-full hover:opacity-90 transition">
+          <button className="flex items-center gap-2 bg-[#00AFF0] text-white px-2 h-8 rounded-full hover:opacity-90 transition bg-gradient-to-r from-[#14B0F9] to-[#0197DC] hover:opacity-90 transition">
             <img
               src={phoneIcon}
               alt="Phone"
