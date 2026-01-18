@@ -5,16 +5,13 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
 const DoctorsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState("right");
   const total = doctors.length;
 
   const next = () => {
-    setDirection("right");
     setCurrentIndex((prev) => (prev + 1) % total);
   };
 
   const prev = () => {
-    setDirection("left");
     setCurrentIndex((prev) => (prev - 1 + total) % total);
   };
 
@@ -26,8 +23,9 @@ const DoctorsCarousel = () => {
 
   return (
     <section className="w-full bg-[#0FB3FF] overflow-hidden">
-      <div className="max-w-5xl mx-auto px-4 py-16">
-        <div className="flex items-center justify-between mb-10">
+      <div className="max-w-5xl mx-auto px-0 sm:px-4 py-12 sm:py-16">
+
+        <div className="flex items-center justify-between mb-10 px-4 sm:px-0">
           <h2 className="text-white text-3xl md:text-4xl font-semibold">
             Həkimlər
           </h2>
@@ -55,21 +53,32 @@ const DoctorsCarousel = () => {
           </div>
         </div>
 
-        {/* Cards */}
-        <div
-          className={`grid gap-6
-          grid-cols-1 sm:grid-cols-3 md:grid-cols-3
-          transition-all duration-500 ease-in-out
-          ${
-            direction === "right"
-              ? "animate-slide-right"
-              : "animate-slide-left"
-          }`}
-        >
+        {/* mobile slider */}
+        <div className="block sm:hidden overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+            }}
+          >
+            {doctors.map((doctor) => (
+              <div
+                key={doctor.id}
+                className="min-w-full flex justify-center"
+              >
+                <DoctorCard doctor={doctor} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+       {/* desktop */}
+        <div className="hidden sm:grid grid-cols-3 gap-6">
           {visibleDoctors.map((doctor) => (
             <DoctorCard key={doctor.id} doctor={doctor} />
           ))}
         </div>
+
       </div>
     </section>
   );
