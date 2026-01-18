@@ -7,10 +7,12 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 import Doctors from "./pages/Doctors";
 import DoctorDetail from "./pages/DoctorDetail";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop/>
       <Topbar />
       <Navbar />
 
